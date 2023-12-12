@@ -18,11 +18,11 @@ The way the program can be used is also explained on the pages themselves and is
 ## Program flow
 The frontend is written in Reactjs, with Inertia coupling Laravel to the frontend. There is only one main frontend page named "Plinkpage.jsx", which you can find in `/resources/js/Plinkpage.jsx`. This component changes based on what data it recieves back from requests, which can be a uuid for a link, a requestedPassword or a passwordExpired boolean. 
 
-###Initial page
+### Initial page
 The standard route `/` is routed to index() in the `/app/Http/Controllers/PlinkController`, and it displays page with no data given back. Note that all the code is commented in the files mentioned as well. The submit() for the form on the index-page makes a post request to the store() function in `/app/Http/Controllers/PlinkController`. We recieve the `sharedPassword`, `hoursLeft` and `uses` from the frontend, generate a `uuid`, create a database entry with these four variables, and send the `uuid` back to the frontend.
-###After pressing 'Create Plink'
+### After pressing 'Create Plink'
 After pressing the button to create a plink, the frontend changes to no longer show the form, and instead show the link, which the user can click to copy and share with others.
-###Using the link
+### Using the plink
 Routes like `http://127.0.0.1:8000/{uuid}` are routed to the show() function in `/app/Http/Controllers/PlinkController`. This retrieves the uuid from the url and uses it to lookup the plink associated with it. Then, it decrements the number of `uses` by one and checks if the link should be expired by the maximum uptime denoted by `hoursLeft`. If either of the maxima are reached, the plink is deleted and the "Expired Plink" page is shown to the user. Else, the password is shown to the user, and the user can click to copy it.
 
 ## Possible improvements
