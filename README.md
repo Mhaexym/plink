@@ -4,7 +4,8 @@ Password linking, or 'plinking' is a project I built that allows a user to safel
 ## Initializing the project
 If you already have a Laravel dev environment setup, please skip this step. 
 1. Make sure you have php and composer installed beforehand, and have made sure that you can run both in CLI.
-2. Run 
+2. Pull the project from github and open the root folder 'plink' in a terminal.
+3. Run 
 
 ## Learning Laravel
 
