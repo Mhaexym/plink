@@ -23,7 +23,7 @@ The standard route `/` is routed to `index()` in the `/app/Http/Controllers/Plin
 ### After pressing 'Create Plink'
 After pressing the button to create a plink, the frontend changes to no longer show the form, and instead show the link, which the user can click to copy and share with others.
 ### Using the plink
-Routes like `http://127.0.0.1:8000/{uuid}` are routed to the show() function in `/app/Http/Controllers/PlinkController`. This retrieves the uuid from the url and uses it to lookup the plink associated with it. Then, it decrements the number of `uses` by one and checks if the link should be expired by the maximum uptime denoted by `hoursLeft`. If either of the maxima are reached, the plink is deleted and the "Expired Plink" page is shown to the user. Else, the password is shown to the user, and the user can click to copy it.
+Routes like `http://127.0.0.1:8000/{uuid}` are routed to the `show()` function in `/app/Http/Controllers/PlinkController`. This retrieves the uuid from the url and uses it to lookup the plink associated with it. Then, it decrements the number of `uses` by one and checks if the link should be expired by the maximum uptime denoted by `hoursLeft`. If either of the maxima are reached, the plink is deleted and the "Expired Plink" page is shown to the user. Else, the password is shown to the user, and the user can click to copy it.
 
 ## Possible improvements
 * Robust form handling & proper backend validation (now only password is validated, and rest is validated on frontend)
