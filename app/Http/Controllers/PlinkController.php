@@ -45,7 +45,6 @@ class PlinkController extends Controller
 
         // Generate a uuid for a unique link and couple it with the password in a single plink db entry.
         $uuid = Str::Uuid();
-        echo ($request->input('expiryDate'));
         Plink::create([
             'sharedPassword' => $request->input('sharedPassword'),
             'uuid' => $uuid,
