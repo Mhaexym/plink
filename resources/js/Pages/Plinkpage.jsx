@@ -4,18 +4,20 @@ export default function Plinkpage({ uuid, requestedPassword, passwordExpired }) 
     // verander hoursleft even naar datetime-local, ook in de input en laat de error zien
     // var date = new Date().toISOString().slice(0, 16);
 
-    // Set the 
+    // Set the initial values of the form and make data, setdata and post.
     const { data, setData, post, processing, reset } = useForm({
         sharedPassword: '',
         hoursLeft: 1,
         uses: 1,
     });
 
+    // Submit data and post to plink.store
     const submit = (event) => {
         event.preventDefault();
         post(route('plink.store'), { onSucces: () => reset() });
     }
 
+    // Helper function for copying input fields properly with UI feedback.
     const copy = (event) => {
         event.target.disabled = true;
         let store = event.target.value
@@ -25,10 +27,13 @@ export default function Plinkpage({ uuid, requestedPassword, passwordExpired }) 
         setTimeout(() => event.target.disabled = false, 2500);
     }
 
+
     const link = uuid ? "http://127.0.0.1:8000/" + uuid : null;
     const hasLink = uuid ? true : false;
     const hasPassword = requestedPassword ? true : false;
 
+    // Grid based page layout, where elements are conditional on hasLink, hasPassword and passwordExpired
+    // shows input fields that are coupled to the variables in data. 
     return (
         <div>
             <Head title='Plink' />

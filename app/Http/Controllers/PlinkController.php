@@ -62,6 +62,7 @@ class PlinkController extends Controller
      */
     public function show()
     {
+        // Retrieve uuid from url, and get all data needed to confirm password retrieval
         $str = $_SERVER['REQUEST_URI'];
         $str = ltrim($str, '/');
         $plink = Plink::where('uuid', '=', $str);
