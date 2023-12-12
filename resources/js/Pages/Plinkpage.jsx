@@ -113,7 +113,7 @@ export default function Plinkpage({ uuid, requestedPassword, passwordExpired }) 
                                     value={data.hoursLeft}
                                 ></input>
 
-                                <div className="col-span-2 bg-red-900 justify-center items-center flex rounded-bl-3xl"><h1>Number of uses before expiry:</h1></div>
+                                <div className="col-span-2 bg-red-900 justify-center items-center flex rounded-bl-3xl"><h1>Uses before expiry:</h1></div>
                                 <input
                                     type="number"
                                     min="1"
